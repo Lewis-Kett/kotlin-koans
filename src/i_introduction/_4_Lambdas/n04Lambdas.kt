@@ -3,12 +3,25 @@ package i_introduction._4_Lambdas
 import util.TODO
 import util.doc4
 
+fun sum(x: Int, y: Int): Int {
+    return x + y
+}
+
+fun square(x: Int): Int {
+    return x * x
+}
+
 fun example() {
 
     val sum = { x: Int, y: Int -> x + y }
+
     val square: (Int) -> Int = { x -> x * x }
 
     sum(1, square(2)) == 5
+}
+
+fun isEven(x: Int): Boolean {
+    return x % 2 == 0
 }
 
 fun todoTask4(collection: Collection<Int>): Nothing = TODO(
@@ -22,4 +35,4 @@ fun todoTask4(collection: Collection<Int>): Nothing = TODO(
     documentation = doc4(),
     references = { JavaCode4().task4(collection) })
 
-fun task4(collection: Collection<Int>): Boolean = todoTask4(collection)
+fun task4(collection: Collection<Int>): Boolean = collection.any { x -> x % 2 == 0 }
